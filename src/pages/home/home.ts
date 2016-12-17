@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { NavController } from 'ionic-angular';
+import { GithubService } from '../../services/github/github.service'
 
 @Component({
   selector: 'page-home',
@@ -8,8 +8,17 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  public avatarURL: string;
 
+  constructor(protected githubService: GithubService) {
+    this.loadAvatarURL();
+    console.log(process.env);
+  }
+
+  protected loadAvatarURL(): void {
+    this.githubService.getUserAvatarURL('ericdesa').then((avatarURL: string) => {
+      this.avatarURL = avatarURL;
+    });
   }
 
 }
