@@ -27,7 +27,7 @@ import { GithubMockService } from './../services/github/github-mock.service';
   ],
   providers: [
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    { provide: GithubService, useClass: GithubHttpService }
+    { provide: GithubService, useClass: process.env.NODE_ENV === 'test' ? GithubMockService : GithubHttpService }
   ]
 })
 

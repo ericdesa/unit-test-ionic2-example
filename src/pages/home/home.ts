@@ -9,10 +9,11 @@ import { GithubService } from '../../services/github/github.service'
 export class HomePage {
 
   public avatarURL: string;
+  public nodeEnv: string;
 
   constructor(protected githubService: GithubService) {
     this.loadAvatarURL();
-    console.log(process.env);
+    this.nodeEnv = process.env.NODE_ENV;
   }
 
   protected loadAvatarURL(): void {

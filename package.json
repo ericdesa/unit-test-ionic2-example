@@ -3,10 +3,31 @@
   "author": "Ionic Framework",
   "homepage": "http://ionicframework.com/",
   "private": true,
+  "version": "1.0.0",
   "scripts": {
-    "ionic:build": "ionic-app-scripts build",
-    "ionic:serve": "ionic-app-scripts serve",
-    "test": "jest"
+    "ionic:build": "better-npm-run build:production",
+    "ionic:serve": "better-npm-run serve:development",
+    "test": "better-npm-run test"
+  },
+  "betterScripts": {
+    "build:production": {
+      "command": "ionic-app-scripts build",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+    "serve:development": {
+      "command": "ionic-app-scripts serve",
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
+    "test": {
+      "command": "jest",
+      "env": {
+        "NODE_ENV": "test"
+      }
+    }
   },
   "dependencies": {
     "@angular/common": "2.2.1",
@@ -28,8 +49,11 @@
   "devDependencies": {
     "@ionic/app-scripts": "0.0.47",
     "@types/jasmine": "2.5.38",
+    "@types/node": "6.0.52",
+    "better-npm-run": "^0.0.13",
     "jest-cli": "18.0.0",
     "ts-jest": "17.0.3",
+    "ts-node": "1.7.2",
     "typescript": "2.0.9"
   },
   "jest": {
@@ -59,5 +83,8 @@
       "locator": "ios"
     }
   ],
+  "config": {
+    "ionic_webpack": "./config/webpack.config.js"
+  },
   "description": "unit-test-ionic2-example: An Ionic project"
 }
