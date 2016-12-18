@@ -1,27 +1,20 @@
+
+import { TestBed, async, inject } from '@angular/core/testing';
 import { HttpModule } from '@angular/http';
-import { TestBed } from '@angular/core/testing';
 
 import { GithubService } from './github.service';
-import { GithubMockService } from './github-mock.service';
-
-import { async, inject } from '@angular/core/testing';
 
 beforeEach(() => {
     TestBed.configureTestingModule({
         imports: [HttpModule],
-        providers: [
-            {
-                provide: GithubService,
-                useClass: GithubMockService,
-            },
-        ],
+        providers: [GithubService],
     });
 });
 
 describe(`GetAvatarURL`, () => {
 
     it(`parse the right field`, (async(inject([GithubService], (githubService: GithubService) => {
-        githubService.getUserAvatarURL('ericdesa').then((avatarURL: string) => {
+        githubService.getUserAvatarURL('dryftyco').then((avatarURL: string) => {
             expect(avatarURL).toEqual('https://avatars.githubusercontent.com/u/9135434?v=3');
         });
     }))));
