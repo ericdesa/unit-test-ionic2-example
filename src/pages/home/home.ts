@@ -22,4 +22,8 @@ export class HomePage {
     });
   }
 
+  public static hello(): string {
+    return 'hello';
+  }
+
 }

@@ -8,7 +8,7 @@ export class GithubMockService extends GithubHttpService {
     // --------------------------------------------------
 
     public getUserAvatarURL(username: string): Promise<string> {
-        return this.getMockFileJSON('github-profile.json').then((json: any) => {
+        return this.getMockFileJSON('github-' + username + '-profile.json').then((json: any) => {
             return this.parseURLFromJSON(json);
         });
     }
@@ -17,7 +17,8 @@ export class GithubMockService extends GithubHttpService {
     // --------------------------------------------------
 
     protected getMockFileJSON(fileName: string): Promise<any> {
-        return this.http.get('/assets/mock/' + fileName)
+        debugger
+        return this.http.get('/assets/mocks/' + fileName)
             .toPromise()
             .then((response: Response) => {
                 let json: any = response.json();
