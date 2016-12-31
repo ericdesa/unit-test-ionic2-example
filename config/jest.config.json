@@ -1,0 +1,12 @@
+{
+    "testEnvironment": "node",
+    "moduleFileExtensions": [
+        "ts",
+        "js"
+    ],
+    "transform": {
+        "^.+\\.(ts)$": "<rootDir>/config/jest.preprocessor.js"
+    },
+    "testRegex": "<rootDir>/src/.*\\.spec\\.(ts|js)$",
+    "setupTestFrameworkScriptFile": "<rootDir>/config/jest.config.js"
+}
